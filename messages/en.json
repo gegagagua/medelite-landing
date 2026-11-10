@@ -1,0 +1,282 @@
+{
+  "meta": {
+    "clinicName": "Medelite Clinic",
+    "clinicShortName": "Medelite",
+    "tagline": "A new language of care",
+    "description": "Medelite is a modern multidisciplinary medical centre in Tbilisi. Outstanding doctors, personalised approach, and quiet attention to detail.",
+    "city": "Tbilisi",
+    "country": "Georgia",
+    "address": "48 I. Chavchavadze Ave, Tbilisi 0162",
+    "phone": "+995 32 2 44 55 77",
+    "email": "hello@medelite.ge",
+    "hours": "Mon–Sat: 09:00–20:00 · Sun: 10:00–16:00"
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "doctors": "Doctors",
+    "news": "News",
+    "about": "About",
+    "contact": "Contact",
+    "book": "Book a visit",
+    "menu": "Menu",
+    "close": "Close",
+    "skipToContent": "Skip to main content",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "theme": {
+    "label": "Theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System",
+    "toggle": "Toggle theme"
+  },
+  "lang": {
+    "label": "Language",
+    "ka": "Georgian",
+    "ru": "Russian",
+    "en": "English",
+    "switcher": "Choose language"
+  },
+  "common": {
+    "bookNow": "Book",
+    "learnMore": "Learn more",
+    "viewAll": "View all",
+    "readMore": "Read more",
+    "allServices": "All services",
+    "allNews": "All stories",
+    "allDoctors": "All doctors",
+    "comingSoon": "Coming soon",
+    "comingSoonBody": "This page is in design. Final content will appear shortly.",
+    "backHome": "Back to home",
+    "notFoundTitle": "Page not found",
+    "notFoundBody": "The page you requested no longer exists, or the address has changed.",
+    "floatingBookAria": "Book a visit",
+    "floatingWhatsAppAria": "Contact us on WhatsApp",
+    "priceFrom": "from",
+    "currency": "GEL",
+    "readingMin": "{min} min read",
+    "yearsOfPractice": "{years} years of practice",
+    "languages": "Languages"
+  },
+  "home": {
+    "stats": {
+      "specialities": "specialities",
+      "doctors": "doctors",
+      "patients": "patients / year",
+      "years": "years of practice"
+    },
+    "specialitiesEyebrow": "02 — Specialities",
+    "specialitiesTitle": "A clinic for the entire life of your health, not an acute episode.",
+    "specialitiesBody": "Eighteen departments working in one space, one record, one standard.",
+    "doctorsEyebrow": "03 — Doctors",
+    "doctorsTitle": "The team you will meet",
+    "doctorsBody": "Senior clinicians who have been building their practice here — not visiting it.",
+    "processEyebrow": "04 — How we work",
+    "processTitle": "A visit in four steps, with time between them.",
+    "process": [
+      { "title": "You book", "body": "Online or by phone. We confirm a time when both the doctor and the diagnostic you need are available together." },
+      { "title": "We meet", "body": "Visits are 40 minutes. Your doctor reads your file before the door opens — not during the conversation." },
+      { "title": "A plan, in writing", "body": "You leave with a written summary and next steps, available in your patient portal within 24 hours." },
+      { "title": "We keep looking", "body": "Follow-up is part of the plan. For chronic conditions, your doctor reviews your file at agreed intervals." }
+    ],
+    "facilityEyebrow": "05 — The facility",
+    "facilityTitle": "A building designed around waiting without feeling like waiting.",
+    "facilityBody": "1,400 m² on four floors. Natural light in every treatment room. A quiet library for consultations. A separate paediatric entrance.",
+    "galleryEyebrow": "06 — Gallery",
+    "galleryTitle": "On the other side of the door.",
+    "galleryBody": "Rooms, hallways, objects — in photography. Architecture by Gigi Tsereteli Studio, 2024.",
+    "testimonialsEyebrow": "07 — Voices",
+    "testimonialsTitle": "We let the patients speak for us.",
+    "testimonialsBody": "Anonymised responses from our 2025 satisfaction survey. Published with permission.",
+    "newsEyebrow": "08 — Stories",
+    "newsTitle": "From inside the clinic",
+    "faqEyebrow": "09 — Questions",
+    "faqTitle": "Things people ask us",
+    "faqBody": "If you can't find the answer here — call us, or ping us on WhatsApp.",
+    "ctaEyebrow": "10 — Book",
+    "ctaTitle": "Start with a conversation.",
+    "ctaBody": "Your first visit is a conversation, not a procedure. We'll decide what comes next, together.",
+    "ctaButton": "Book your first visit"
+  },
+  "services": {
+    "heroEyebrow": "02 — Services",
+    "heroTitle": "Eighteen departments. One standard.",
+    "heroBody": "Every specialty at Medelite follows the same disciplines: 40-minute visits, a shared medical record, and transparent pricing published before you walk in.",
+    "filterAll": "All",
+    "filterBy": "Filter by category",
+    "procedures": "Procedures",
+    "team": "Team",
+    "faq": "Questions",
+    "viewService": "View service",
+    "bookThis": "Book this service",
+    "priceDisplayed": "Prices are indicative. Final cost is confirmed during booking.",
+    "ctaTitle": "Not sure where to start?",
+    "ctaBody": "Our internal medicine team will listen first and route you to the right specialist.",
+    "ctaButton": "Talk to an internist"
+  },
+  "booking": {
+    "heroEyebrow": "03 — Booking",
+    "heroTitle": "A visit, in four quiet steps.",
+    "heroBody": "We confirm your time within one working hour. No automated chatbots.",
+    "step": "Step",
+    "of": "of",
+    "steps": [
+      { "title": "Choose a service", "body": "Pick a department and a reason for the visit." },
+      { "title": "Pick a doctor", "body": "Choose from our team, or let us assign the best match." },
+      { "title": "Pick a time", "body": "See live availability for the next 14 days." },
+      { "title": "Confirm", "body": "We send a confirmation by email and SMS." }
+    ],
+    "form": {
+      "service": "Service",
+      "doctor": "Doctor",
+      "anyDoctor": "No preference — assign for me",
+      "date": "Date",
+      "time": "Time",
+      "firstName": "First name",
+      "lastName": "Last name",
+      "phone": "Phone",
+      "email": "Email",
+      "notes": "Anything we should know?",
+      "notesHint": "Optional. Chronic conditions, allergies, concerns — you can also share these in person.",
+      "consent": "I agree to the processing of my personal data in accordance with the privacy policy.",
+      "submit": "Confirm booking",
+      "or": "or",
+      "callUs": "Call the clinic",
+      "whatsapp": "Write on WhatsApp"
+    },
+    "times": {
+      "morning": "Morning",
+      "midday": "Midday",
+      "afternoon": "Afternoon",
+      "evening": "Evening"
+    },
+    "note": "Need urgent care? Call us at +995 32 2 44 55 77 — someone picks up within three rings during opening hours.",
+    "summaryTitle": "Your visit",
+    "summaryEmpty": "Pick a service to see a summary.",
+    "insurance": "We accept GPI, Aldagi, IMEDI L, Ardi, and TBC Insurance. Check with your provider for the exact coverage."
+  },
+  "news": {
+    "heroEyebrow": "04 — Stories",
+    "heroTitle": "From inside the clinic.",
+    "heroBody": "A quiet newsletter from Medelite. Pieces by our doctors, departmental updates, and patient stories.",
+    "allCategories": "All stories",
+    "by": "By",
+    "editorial": "Editorial team",
+    "related": "Continue reading",
+    "backToNews": "Back to stories",
+    "share": "Share this story"
+  },
+  "about": {
+    "heroEyebrow": "05 — About",
+    "heroTitle": "A clinic designed as a long conversation, not a visit.",
+    "heroBody": "Medelite was founded in 2015 by four doctors who wanted to practice medicine the way they had been taught to — slowly, with time to listen, with one shared record, with the family as part of the plan.",
+    "missionEyebrow": "Mission",
+    "missionTitle": "Our mission",
+    "missionBody": "To give modern medical care a quieter, more deliberate language — one that the people of Tbilisi, and anyone who comes through our doors, can trust with their family's health.",
+    "valuesEyebrow": "Values",
+    "valuesTitle": "What we insist on, every day.",
+    "timelineEyebrow": "Timeline",
+    "timelineTitle": "A decade in the clinic.",
+    "facilityEyebrow": "Facility",
+    "facilityTitle": "1,400 m², four floors, 18 departments.",
+    "facilityItems": [
+      { "title": "The light", "body": "Every treatment room has a window. Artificial light is calibrated to the time of day." },
+      { "title": "The quiet", "body": "Acoustic treatment reduces ambient noise below 32 dB in consultation rooms." },
+      { "title": "The flow", "body": "Separate entrances for paediatrics and psychotherapy. One patient record across every department." }
+    ],
+    "accreditationsEyebrow": "Partners",
+    "accreditationsTitle": "Standards and partners",
+    "accreditations": ["Ministry of Health, Georgia", "European Society of Cardiology", "FIGO", "Royal College of GPs, UK", "AAD", "AO Trauma", "ADA", "EAPS", "FDI World Dental"],
+    "numbers": [
+      { "value": "11", "label": "years in practice" },
+      { "value": "18", "label": "departments" },
+      { "value": "24", "label": "doctors" },
+      { "value": "12k", "label": "patients / year" }
+    ]
+  },
+  "contact": {
+    "heroEyebrow": "06 — Contact",
+    "heroTitle": "Write, call, or come in.",
+    "heroBody": "Our front desk answers in Georgian, Russian, and English. For urgent care, call us directly.",
+    "visit": "Visit us",
+    "call": "Call us",
+    "write": "Write to us",
+    "hours": "Opening hours",
+    "directionsTitle": "Getting here",
+    "directions": [
+      { "title": "Metro", "body": "Rustaveli — 12 minutes on foot along Chavchavadze Avenue." },
+      { "title": "Car", "body": "Underground parking is free for patients. Entrance from Abashidze Street." },
+      { "title": "Taxi", "body": "Our pin on Yandex Go, Bolt and Uber is 'Medelite Clinic'." }
+    ],
+    "formTitle": "Send us a note",
+    "formHint": "We answer within one working day. For urgent matters, please call.",
+    "form": {
+      "name": "Your name",
+      "email": "Your email",
+      "phone": "Phone",
+      "topic": "Topic",
+      "topicOptions": ["Booking question", "Insurance", "Medical records", "Feedback", "Partnership", "Other"],
+      "message": "Message",
+      "submit": "Send",
+      "success": "Thank you — we'll be in touch within one working day.",
+      "consent": "I agree to the processing of my personal data."
+    },
+    "emergency": "If you are experiencing a life-threatening emergency, call 112 immediately. Medelite is not a 24-hour emergency facility."
+  },
+  "footer": {
+    "columns": {
+      "clinic": "Clinic",
+      "services": "Services",
+      "contact": "Contact",
+      "social": "Social"
+    },
+    "newsletter": {
+      "title": "Stay in touch",
+      "body": "A monthly letter on health and Medelite news.",
+      "placeholder": "Your email",
+      "submit": "Subscribe"
+    },
+    "copyright": "© {year} Medelite. All rights reserved.",
+    "privacy": "Privacy policy",
+    "terms": "Terms"
+  },
+  "cookies": {
+    "title": "We use cookies",
+    "body": "Cookies help us improve this site. Read our privacy policy.",
+    "accept": "Accept",
+    "decline": "Decline"
+  },
+  "pages": {
+    "home": {
+      "title": "A new language of care",
+      "metaDescription": "A modern multidisciplinary clinic in Tbilisi. Outstanding doctors, personalised approach and advanced technology.",
+      "heroEyebrow": "A clinic in Tbilisi",
+      "heroTitle": "A new language of care",
+      "heroSubtitle": "Medelite is a modern medical experience, designed for people who notice the details.",
+      "heroPrimaryCta": "Book a visit",
+      "heroSecondaryCta": "Our services"
+    },
+    "services": {
+      "title": "Services",
+      "metaDescription": "All of Medelite's services — consultation, diagnostics, therapy, and aesthetic medicine."
+    },
+    "booking": {
+      "title": "Book a visit",
+      "metaDescription": "Choose a service, a doctor and a time — confirm your visit in a few steps."
+    },
+    "news": {
+      "title": "News",
+      "metaDescription": "News from Medelite — clinical pieces, initiatives, and clinic life."
+    },
+    "about": {
+      "title": "About us",
+      "metaDescription": "Medelite's story, mission, team, and achievements."
+    },
+    "contact": {
+      "title": "Contact",
+      "metaDescription": "Write, call, or visit Medelite Clinic in Tbilisi."
+    }
+  }
+}

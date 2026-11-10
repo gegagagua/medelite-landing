@@ -1,26 +1,320 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ============================================================
+   MEDELITE — Design tokens
+   Full token spec: /DESIGN.md
+   ============================================================ */
+
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+
+  /* Surfaces */
+  --bg: #f6f1e6;
+  --bg-raised: #fbf7ec;
+  --bg-sunken: #ebe4d4;
+
+  /* Ink */
+  --ink: #13201c;
+  --ink-soft: #3d4a45;
+  --ink-muted: #6f7b76;
+
+  /* Lines */
+  --line: #d9cfbb;
+  --line-strong: #b8ac92;
+
+  /* Brand (viridian) */
+  --brand: #143b32;
+  --brand-soft: #285048;
+  --brand-ink: #f6f1e6;
+
+  /* Accent (brass) */
+  --accent: #c9a368;
+  --accent-soft: #ddbd85;
+  --accent-ink: #1f1708;
+
+  /* Semantic */
+  --success: #4c7c58;
+  --warning: #b98635;
+  --danger: #9b3b2e;
+
+  /* Focus */
+  --focus: #c9a368;
+
+  /* Shadows (warm, dark-first, soft) */
+  --shadow-xs: 0 1px 2px rgba(13, 25, 22, 0.06);
+  --shadow-sm: 0 2px 6px rgba(13, 25, 22, 0.08);
+  --shadow-md: 0 8px 24px -8px rgba(13, 25, 22, 0.14);
+  --shadow-lg: 0 24px 60px -20px rgba(13, 25, 22, 0.22);
+  --shadow-xl: 0 40px 90px -30px rgba(13, 25, 22, 0.30);
+  --shadow-glow: 0 0 60px -10px rgba(201, 163, 104, 0.35);
 }
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: #0c1714;
+  --bg-raised: #122320;
+  --bg-sunken: #081210;
+
+  --ink: #ede4d1;
+  --ink-soft: #b8b0a0;
+  --ink-muted: #7b766a;
+
+  --line: #223431;
+  --line-strong: #324a45;
+
+  --brand: #4ca089;
+  --brand-soft: #6cbfa6;
+  --brand-ink: #0c1714;
+
+  --accent: #d9b880;
+  --accent-soft: #e8ca9b;
+  --accent-ink: #0c1714;
+
+  --success: #7bb58a;
+  --warning: #d9a868;
+  --danger: #d06f60;
+
+  --focus: #d9b880;
+
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.45);
+  --shadow-md: 0 8px 24px -8px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 24px 60px -20px rgba(0, 0, 0, 0.65);
+  --shadow-xl: 0 40px 90px -30px rgba(0, 0, 0, 0.75);
+  --shadow-glow: 0 0 60px -10px rgba(217, 184, 128, 0.40);
+}
+
+/* ============================================================
+   Tailwind v4 theme — map CSS vars to Tailwind's token system
+   ============================================================ */
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: var(--bg);
+  --color-bg-raised: var(--bg-raised);
+  --color-bg-sunken: var(--bg-sunken);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-muted: var(--ink-muted);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-brand: var(--brand);
+  --color-brand-soft: var(--brand-soft);
+  --color-brand-ink: var(--brand-ink);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-ink: var(--accent-ink);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --color-focus: var(--focus);
+
+  --font-sans: var(--font-body), var(--font-body-ka), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display), var(--font-display-ka), ui-serif, Georgia, serif;
+  --font-mono: var(--font-mono), ui-monospace, monospace;
+
+  --radius-none: 0;
+  --radius-sm: 2px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --radius-xl: 18px;
+  --radius-pill: 999px;
+
+  --shadow-xs: var(--shadow-xs);
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-xl: var(--shadow-xl);
+  --shadow-glow: var(--shadow-glow);
+
+  --breakpoint-xs: 22rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ============================================================
+   Georgian locale — swap display font family
+   ============================================================ */
+
+html[lang="ka"] {
+  --font-sans: var(--font-body-ka), var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display-ka), var(--font-display), ui-serif, Georgia, serif;
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-display);
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+  }
+
+  html[lang="ka"] h1,
+  html[lang="ka"] h2,
+  html[lang="ka"] h3,
+  html[lang="ka"] h4,
+  html[lang="ka"] h5 {
+    line-height: 1.22;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+  }
+
+  ::selection {
+    background-color: var(--accent);
+    color: var(--accent-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  button {
+    font-family: inherit;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ============================================================
+   Fluid type utilities
+   ============================================================ */
+
+@utility text-display-xl {
+  font-size: clamp(3.2rem, 7vw, 6.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  font-weight: 300;
+}
+@utility text-display {
+  font-size: clamp(2.4rem, 5vw, 4.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  font-weight: 300;
+}
+@utility text-h1 {
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  font-weight: 400;
+}
+@utility text-h2 {
+  font-size: clamp(1.6rem, 3vw, 2.25rem);
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+  font-weight: 400;
+}
+@utility text-h3 {
+  font-size: 1.5rem;
+  line-height: 1.3;
+  font-weight: 500;
+}
+@utility text-lead {
+  font-size: 1.25rem;
+  line-height: 1.55;
+  font-weight: 400;
+  color: var(--ink-soft);
+}
+@utility text-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--ink-muted);
+}
+@utility text-numeral {
+  font-family: var(--font-display);
+  font-variant-numeric: tabular-nums lining-nums;
+  font-feature-settings: "tnum", "lnum";
+}
+
+/* ============================================================
+   Paper grain overlay
+   ============================================================ */
+
+.grain {
+  position: relative;
+  isolation: isolate;
+}
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/textures/grain.svg");
+  background-size: 200px 200px;
+  background-repeat: repeat;
+  opacity: 0.045;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  z-index: 0;
+}
+[data-theme="dark"] .grain::after {
+  opacity: 0.08;
+  mix-blend-mode: overlay;
+}
+
+/* ============================================================
+   Hairlines
+   ============================================================ */
+
+.hairline {
+  height: 1px;
+  background: var(--line);
+  border: 0;
+  width: 100%;
+}
+.hairline-strong {
+  height: 1px;
+  background: var(--line-strong);
+  border: 0;
+  width: 100%;
+}
+
+/* ============================================================
+   Container
+   ============================================================ */
+
+.container-prose {
+  max-width: 68ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container-wide {
+  max-width: 1360px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1.25rem, 4vw, 3rem);
+  padding-right: clamp(1.25rem, 4vw, 3rem);
 }
