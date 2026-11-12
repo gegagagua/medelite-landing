@@ -15,6 +15,7 @@ type Props = {
   rounded?: "none" | "sm" | "md" | "lg" | "xl";
   grain?: boolean;
   overlay?: boolean;
+  quality?: number;
 };
 
 const ROUNDED: Record<NonNullable<Props["rounded"]>, string> = {
@@ -37,6 +38,7 @@ export function SmartImage({
   rounded = "lg",
   grain = true,
   overlay = false,
+  quality = 70,
 }: Props) {
   return (
     <div
@@ -56,6 +58,7 @@ export function SmartImage({
         fill
         priority={priority}
         sizes={sizes}
+        quality={quality}
         className={cn("object-cover", className)}
       />
       {overlay ? (

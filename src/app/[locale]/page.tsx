@@ -5,6 +5,8 @@ import { ArrowRight, ArrowUpRight, Quote, Star } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { Portrait } from "@/components/portrait";
 import { SmartImage } from "@/components/smart-image";
+import { HeroSlider } from "@/components/hero-slider";
+import { GalleryCarousel } from "@/components/gallery-carousel";
 import { FaqList } from "@/components/faq-list";
 import {
   doctorImages,
@@ -57,71 +59,53 @@ export default async function HomePage({ params }: Props) {
   const galleryPhotos = facilityPhotos.slice(0, 6);
   const faqItems = homeFaq[safeLocale];
 
+  const heroSlides = [
+    { src: heroPhoto.src, alt: heroPhoto.alt[safeLocale] },
+    ...facilityPhotos.slice(0, 3).map((p) => ({
+      src: p.src,
+      alt: p.alt[safeLocale],
+    })),
+  ];
+
   return (
     <>
       {/* HERO */}
-      <section className="relative min-h-[100svh] overflow-hidden grain">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -top-40 right-[-20%] h-[60rem] w-[60rem] rounded-full"
-          style={{
-            background:
-              "radial-gradient(circle at center, color-mix(in oklab, var(--accent) 22%, transparent), transparent 60%)",
-          }}
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -bottom-40 left-[-15%] h-[52rem] w-[52rem] rounded-full"
-          style={{
-            background:
-              "radial-gradient(circle at center, color-mix(in oklab, var(--brand) 30%, transparent), transparent 60%)",
-          }}
-        />
+      <section className="relative h-[100svh] w-full overflow-hidden">
+        <HeroSlider slides={heroSlides} />
 
-        <div className="container-wide relative z-10 flex min-h-[100svh] flex-col justify-end pt-24 pb-10 md:pb-14">
-          <div className="grid gap-8 md:grid-cols-12 md:items-end">
-            <div className="md:col-span-7">
-              <p className="text-eyebrow">{t("heroEyebrow")}</p>
-              <h1 className="mt-6 text-display-xl text-ink">{t("heroTitle")}</h1>
-              <p className="mt-8 max-w-xl text-lead">{t("heroSubtitle")}</p>
-              <div className="mt-8 flex flex-wrap items-center gap-3">
-                <Link
-                  href="/booking"
-                  className="inline-flex h-12 items-center rounded-md bg-accent px-6 text-sm font-medium text-accent-ink transition-all hover:bg-accent-soft hover:shadow-glow"
-                >
-                  {t("heroPrimaryCta")}
-                </Link>
-                <Link
-                  href="/services"
-                  className="inline-flex h-12 items-center gap-2 rounded-md border border-ink px-6 text-sm text-ink transition-colors hover:border-accent hover:text-accent"
-                >
-                  {t("heroSecondaryCta")}
-                  <span aria-hidden>→</span>
-                </Link>
-              </div>
-            </div>
-
-            <div className="md:col-span-5">
-              <SmartImage
-                src={heroPhoto.src}
-                alt={heroPhoto.alt[safeLocale]}
-                aspect="aspect-[4/5]"
-                rounded="xl"
-                priority
-                sizes="(min-width: 1024px) 40vw, 80vw"
-              />
+        <div className="container-wide relative z-10 flex h-[100svh] flex-col justify-end pt-24 pb-10 text-white md:pb-16">
+          <div className="max-w-3xl">
+            <p className="text-eyebrow text-white/80">{t("heroEyebrow")}</p>
+            <h1 className="mt-6 text-display-xl text-white drop-shadow-sm">
+              {t("heroTitle")}
+            </h1>
+            <p className="mt-8 max-w-xl text-lead text-white/85">
+              {t("heroSubtitle")}
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <Link
+                href="/booking"
+                className="inline-flex h-12 items-center rounded-md bg-accent px-6 text-sm font-medium text-accent-ink transition-all hover:bg-accent-soft hover:shadow-glow"
+              >
+                {t("heroPrimaryCta")}
+              </Link>
+              <Link
+                href="/services"
+                className="inline-flex h-12 items-center gap-2 rounded-md border border-white/60 px-6 text-sm text-white transition-colors hover:border-white hover:bg-white/10"
+              >
+                {t("heroSecondaryCta")}
+                <span aria-hidden>→</span>
+              </Link>
             </div>
           </div>
 
-          <dl className="mt-10 grid grid-cols-2 gap-x-6 gap-y-6 border-t border-line/70 pt-8 md:grid-cols-4 md:gap-x-10">
+          <dl className="mt-10 grid grid-cols-2 gap-x-6 gap-y-6 border-t border-white/25 pt-8 md:grid-cols-4 md:gap-x-10">
             <HeroStat value="18" label={stats.specialities} />
             <HeroStat value="24" label={stats.doctors} />
             <HeroStat value="12k" label={stats.patients} />
             <HeroStat value="11" label={stats.years} />
           </dl>
         </div>
-
-        <div aria-hidden className="absolute bottom-0 inset-x-0 h-px bg-line/60" />
       </section>
 
       {/* SPECIALITIES */}
@@ -322,27 +306,12 @@ export default async function HomePage({ params }: Props) {
           <p className="md:col-span-5 text-ink-soft max-w-md">{tHome("galleryBody")}</p>
         </div>
 
-        <ul className="mt-12 grid grid-cols-6 gap-4">
-          {galleryPhotos.map((p, i) => (
-            <li
-              key={p.src}
-              className={
-                i === 0
-                  ? "col-span-6 md:col-span-4 md:row-span-2"
-                  : i === 3
-                    ? "col-span-6 md:col-span-2 md:row-span-2"
-                    : "col-span-3 md:col-span-2"
-              }
-            >
-              <SmartImage
-                src={p.src}
-                alt={p.alt[safeLocale]}
-                aspect={i === 0 || i === 3 ? "aspect-[4/5]" : "aspect-[4/3]"}
-                rounded="lg"
-              />
-            </li>
-          ))}
-        </ul>
+        <GalleryCarousel
+          photos={galleryPhotos.map((p) => ({ src: p.src, alt: p.alt[safeLocale] }))}
+          closeLabel={safeLocale === "ka" ? "დახურვა" : safeLocale === "ru" ? "Закрыть" : "Close"}
+          prevLabel={safeLocale === "ka" ? "წინა" : safeLocale === "ru" ? "Назад" : "Previous"}
+          nextLabel={safeLocale === "ka" ? "შემდეგი" : safeLocale === "ru" ? "Далее" : "Next"}
+        />
       </section>
 
       {/* TESTIMONIALS */}
@@ -494,8 +463,8 @@ export default async function HomePage({ params }: Props) {
 function HeroStat({ value, label }: { value: string; label: string }) {
   return (
     <div>
-      <dt className="text-eyebrow text-ink-muted">{label}</dt>
-      <dd className="mt-2 text-numeral text-5xl font-light text-ink">{value}</dd>
+      <dt className="text-eyebrow text-white/70">{label}</dt>
+      <dd className="mt-2 text-numeral text-5xl font-light text-white">{value}</dd>
     </div>
   );
 }

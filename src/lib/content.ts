@@ -2340,8 +2340,8 @@ export const homeFaq: L<{ q: string; a: string }[]> = {
 
 export type Photo = { src: string; alt: L<string> };
 
-const unsplash = (id: string, w = 1600) =>
-  `https://images.unsplash.com/photo-${id}?w=${w}&q=80&auto=format&fit=crop`;
+const unsplash = (id: string, w = 1100) =>
+  `https://images.unsplash.com/photo-${id}?w=${w}&q=65&auto=format&fit=crop`;
 
 export const serviceImages: Record<string, Photo> = {
   cardiology: {
@@ -2377,7 +2377,7 @@ export const serviceImages: Record<string, Photo> = {
     },
   },
   paediatrics: {
-    src: unsplash("1581594693700-8fd6c8cfbe0c"),
+    src: unsplash("1503676260728-1c00da094a0b"),
     alt: {
       ka: "პედიატრია — ბავშვი ვიზიტზე",
       ru: "Педиатрия — ребёнок на приёме",
@@ -2417,7 +2417,7 @@ export const serviceImages: Record<string, Photo> = {
     },
   },
   imaging: {
-    src: unsplash("1516069677018-378971ae1ec3"),
+    src: unsplash("1631815588090-d4bfec5b1ccb"),
     alt: {
       ka: "MR სუიტი კლინიკაში",
       ru: "МР-кабинет клиники",
@@ -2564,7 +2564,7 @@ export const doctorImages: Record<string, Photo> = {
     },
   },
   kvaratskhelia: {
-    src: unsplash("1612531822094-66b5cecfcdd1", 900),
+    src: unsplash("1550831107-1553da8c8464", 900),
     alt: {
       ka: "რეზო კვარაცხელია, ოფთალმოლოგი",
       ru: "Резо Кварацхелия, офтальмолог",
@@ -2615,7 +2615,7 @@ export const newsImages: Record<string, Photo> = {
     },
   },
   "new-mri-suite": {
-    src: unsplash("1516069677018-378971ae1ec3"),
+    src: unsplash("1631815588090-d4bfec5b1ccb"),
     alt: {
       ka: "MR აპარატი",
       ru: "МРТ-аппарат",
@@ -2671,7 +2671,7 @@ export const newsImages: Record<string, Photo> = {
     },
   },
   "paediatric-wing-opening": {
-    src: unsplash("1581594693700-8fd6c8cfbe0c"),
+    src: unsplash("1503676260728-1c00da094a0b"),
     alt: {
       ka: "ბავშვთა განყოფილება",
       ru: "Детское отделение",
@@ -2756,7 +2756,7 @@ export const facilityPhotos: Photo[] = [
 ];
 
 export const heroPhoto: Photo = {
-  src: unsplash("1629909613654-28e377c37b09", 2000),
+  src: unsplash("1629909613654-28e377c37b09", 1600),
   alt: {
     ka: "Medelite — მდუმარე სივრცე, ბუნებრივი შუქი",
     ru: "Medelite — тихое пространство, естественный свет",
