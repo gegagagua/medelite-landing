@@ -3,13 +3,15 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 
-import { routing } from "@/i18n/routing";
+import { routing, type Locale } from "@/i18n/routing";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { FloatingActions } from "@/components/floating-actions";
 import { CookieNotice } from "@/components/cookie-notice";
+import { StructuredData } from "@/components/structured-data";
+import { buildMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -17,34 +19,21 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) return {};
   const t = await getTranslations({ locale, namespace: "meta" });
 
+  const base = buildMetadata({
+    locale,
+    title: t("clinicName"),
+    description: t("description"),
+    siteName: t("clinicName"),
+  });
+
   return {
+    ...base,
     title: {
       default: t("clinicName"),
       template: `%s — ${t("clinicShortName")}`,
-    },
-    description: t("description"),
-    alternates: {
-      canonical: `/${locale}`,
-      languages: {
-        ka: "/ka",
-        ru: "/ru",
-        en: "/en",
-        "x-default": "/ka",
-      },
-    },
-    openGraph: {
-      type: "website",
-      locale: locale === "ka" ? "ka_GE" : locale === "ru" ? "ru_RU" : "en_US",
-      siteName: t("clinicName"),
-      title: t("clinicName"),
-      description: t("description"),
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: t("clinicName"),
-      description: t("description"),
     },
   };
 }
@@ -67,6 +56,7 @@ export default async function LocaleLayout({
   return (
     <NextIntlClientProvider messages={messages}>
       <ThemeProvider>
+        <StructuredData locale={locale as Locale} />
         <SmoothScroll />
         <a
           href="#main"

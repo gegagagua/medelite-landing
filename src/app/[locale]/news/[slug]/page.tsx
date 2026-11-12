@@ -4,6 +4,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 import { Link } from "@/i18n/navigation";
+import { buildMetadata } from "@/lib/seo";
 import { SmartImage } from "@/components/smart-image";
 import {
   formatDate,
@@ -25,10 +26,28 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
   const post = getNews(slug);
   if (!post || !isLocale(locale)) return {};
-  return {
+  const tMeta = await getTranslations({ locale, namespace: "meta" });
+  const photo = newsImages[post.slug];
+  const author =
+    post.author === "editorial"
+      ? tMeta("clinicShortName")
+      : getDoctor(post.author)?.name[locale];
+
+  return buildMetadata({
+    locale,
+    path: `/news/${post.slug}`,
     title: post.title[locale],
     description: post.excerpt[locale],
-  };
+    siteName: tMeta("clinicName"),
+    type: "article",
+    images: photo
+      ? [{ url: photo.src, alt: photo.alt[locale] }]
+      : undefined,
+    article: {
+      publishedTime: post.date,
+      authors: author ? [author] : undefined,
+    },
+  });
 }
 
 export default async function NewsDetailPage({ params }: Props) {

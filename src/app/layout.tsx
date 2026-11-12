@@ -10,6 +10,28 @@ export const metadata: Metadata = {
     template: "%s — Medelite",
   },
   description: "A modern multidisciplinary clinic in Tbilisi.",
+  applicationName: "Medelite",
+  authors: [{ name: "Medelite Clinic", url: "https://medelite.ge" }],
+  creator: "Medelite Clinic",
+  publisher: "Medelite Clinic",
+  category: "health",
+  formatDetection: { telephone: true, email: true, address: true },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
 };
 
 export const viewport: Viewport = {

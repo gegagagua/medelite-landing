@@ -3,6 +3,9 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ArrowRight, ArrowUpRight, Quote, Star } from "lucide-react";
 
 import { Link } from "@/i18n/navigation";
+import { buildMetadata } from "@/lib/seo";
+import { hasLocale } from "next-intl";
+import { routing } from "@/i18n/routing";
 import { Portrait } from "@/components/portrait";
 import { SmartImage } from "@/components/smart-image";
 import { HeroSlider } from "@/components/hero-slider";
@@ -29,11 +32,16 @@ type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) return {};
   const t = await getTranslations({ locale, namespace: "pages.home" });
-  return {
+  const tMeta = await getTranslations({ locale, namespace: "meta" });
+  return buildMetadata({
+    locale,
+    path: "",
     title: t("title"),
     description: t("metaDescription"),
-  };
+    siteName: tMeta("clinicName"),
+  });
 }
 
 export default async function HomePage({ params }: Props) {

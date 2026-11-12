@@ -4,6 +4,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ArrowRight, Check } from "lucide-react";
 
 import { Link } from "@/i18n/navigation";
+import { buildMetadata } from "@/lib/seo";
 import { FaqList } from "@/components/faq-list";
 import { Portrait } from "@/components/portrait";
 import { SmartImage } from "@/components/smart-image";
@@ -29,10 +30,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
   const service = getService(slug);
   if (!service || !isLocale(locale)) return {};
-  return {
+  const tMeta = await getTranslations({ locale, namespace: "meta" });
+  const photo = serviceImages[service.slug];
+
+  return buildMetadata({
+    locale,
+    path: `/services/${service.slug}`,
     title: service.name[locale],
     description: service.short[locale],
-  };
+    siteName: tMeta("clinicName"),
+    images: photo
+      ? [{ url: photo.src, alt: photo.alt[locale] }]
+      : undefined,
+  });
 }
 
 export default async function ServiceDetailPage({ params }: Props) {
